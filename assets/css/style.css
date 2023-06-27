@@ -1,0 +1,28 @@
+/* Universal styling for the webpage */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+body {
+    background-color: rgb(218, 213, 213);
+}
+
+.box {
+    background-color: rgb(255, 255, 255);
+    margin: 110px auto; 
+    padding: 50px;
+    width: 85%;
+    max-width: 600px;
+    border-radius: 5%;
+}
+.coding{
+    align-items: center;
+    justify-items: center;
+}
+.view-scores{
+    padding: 15px;
+    
+}
