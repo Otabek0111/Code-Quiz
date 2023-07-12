@@ -40,6 +40,15 @@ var choicesButtonEl = document.querySelectorAll("#choiceButton");
 
 var finalScoreEl = document.querySelector("#finalScore");
 
+var highScoreSec = document.querySelector("#highScoreSec")
+
+var submitSec = document.querySelector(".submitSec")
+
+submitSec.setAttribute("class", "hide")
+highScoreSec =setAttribute("id", "hide")
+
+
+
 
 
 
@@ -47,7 +56,7 @@ var currentQuestionIndex = 0;
 
 var timeRemaining = 100;
 
-var count = 1;
+var count = 0;
 
 var score = 0;
 
@@ -68,7 +77,7 @@ const questionsArray = [
   {
     question: "Which event occurs when the user clicks on an HTML element?",
     choices: ["a. onmouseclick", "b. onclick", "c. onchange", "d. onmouseover"],
-    correctAnswer: "choice2",
+    correctAnswer: "b. onclick",
   },
   {
     question: "How to write an IF statement in JavaScript?",
@@ -143,7 +152,7 @@ function getQuestion( index ) {
 
 function timer() {
   var timeInt = setInterval(function () {
-    time.textContent = "Time remaining:" + timeRemaining + "seconds";
+    time.textContent = "Time remaining: " + timeRemaining + " s ";
     timeRemaining--;
 
     if ((timeRemaining <= 0)) {
@@ -151,7 +160,7 @@ function timer() {
       time.textContent = "time's up";
       completion.textContent = "time's up";
       finish();
-    } else if (currentIndex >= questionsArray.length + 1) {
+    } else if (count >= questionsArray.length ) {
       clearInterval(timeInt);
       finish();
     }
@@ -159,26 +168,29 @@ function timer() {
 }
 
 function checkResponse( event ) {
-    event.preventDefault(); 
-    setTimeout(function(){ ansCheckEl.setAttribute("class", "hide"); },1000);
 
-    if ( questionsArray[currentIndex].answer == event.target.value ) {
+    event.preventDefault(); 
+    setTimeout(function(){ ansCheckEl.setAttribute("class", "hide"); } ,3500);
+    
+    console.log(questionsArray[currentIndex].correctAnswer);
+    console.log(event.target.textContent);
+
+    if ( questionsArray[currentIndex].correctAnswer == event.target.textContent ) {
         ansCheckEl.textContent = 'correct';
         score++;
-
     }
     else {
         timeRemaining = timeRemaining -5;
-        ansCheckEl.textContent = 'incorrect ' + questionsArray[currentIndex].answer ; 
+        ansCheckEl.textContent = 'incorrect, the correct choice was ' + questionsArray[currentIndex].correctAnswer ; 
     }
 
-    if ( currentIndex < questionsArray.length +1 ){ 
+    if ( currentIndex <= questionsArray.length +1){ 
         getQuestion(currentIndex +1);
     }
     else {
         finish();
     }
-    currentIndex++;
+    count++;
 
 }
 
@@ -186,11 +198,10 @@ function checkResponse( event ) {
 startButton.onclick = beginButton;
 
 
-choicesButtonEl.forEach(
-    function(click){
-        click.addEventListener("click", checkResponse); 
+    choicesButtonEl.forEach( 
+        function(click){
+            click.addEventListener("click", checkResponse); 
+        }
+    );
 
-// console.log(event.target.value);
-// console.log(event.target.getAttribute('value'));
-    }
-);
+
