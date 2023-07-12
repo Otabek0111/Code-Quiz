@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif,'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS';
+    font-family: 'Avantgarde', 'TeX Gyre Adventor', 'URW Gothic L', sans-serif;
 }
 
 body {
@@ -14,17 +14,26 @@ body {
     -o-background-size: cover;
     background-size: cover;
     color: white;
+    
 }
 
 .box {
-    background-color: white;
-    margin: 110px auto; 
-    padding: 50px;
+    /* background-color: white; */
+    /* margin: 110px 50px 50px 110px ;  */
+    padding-left: 30px;
+    padding-top: 15px;
     width: 90%;
     max-width: 700px;
     border-radius: 2%;
-    border: 20px groove rgb(238, 155, 169) ;
-    color: black;
+    /* border: 5px groove rgb(238, 155, 169) ; */
+    color: rgb(255, 255, 255);
+    height: 390px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -350px;    
+
 }
 .viewScores{
     padding: 5px;
@@ -38,10 +47,10 @@ body {
     padding: 5px;
     top: 12px;
     right: 40px;
-    background-color: rgb(0, 0, 0);
-    font-size: medium;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(0, 0, 0); */
+    font-size: x-large;
+    color: rgb(255, 255, 255);
+    /* background-color: rgb(255, 255, 255); */
 }
 
 .hide {
@@ -52,11 +61,15 @@ body {
 }
 
 .beginButton{
-    padding: 6px;
+    padding: 6px 50px;
+    
     margin: 15px;
     font-size: large;
     color: aliceblue;
-    background-color: rgb(187, 96, 88);
+    background-color: rgb(209, 114, 145);
+}
+.description {
+    font-size: medium;
 }
 
 ul{
@@ -67,27 +80,65 @@ ul{
 }
 .choices{
     display: inline-grid;
-    padding: 15px;
+
 }
 #choiceButton {
-    padding: 4px;
-    margin: 12px;
+    margin: 12px; 
+    padding: 10px 20px;
+    border: 20px;
     font-size: medium;
     color: aliceblue;
-    background-color: rgb(187, 96, 88);
+    border-radius: 10%;
+    background-color: rgb(202, 163, 181);
+    transition: box-shadow 0.4s ease;
 }
 
-#choiceBtn:hover{
+#choiceButton:hover{
     
-    background-color: rgb(137, 0, 0);
-  
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+
+    box-shadow: 0px 1px 2px 0px rgba(0,255,255,0.7),
+            1px 2px 4px 0px rgba(0,255,255,0.7),
+            2px 4px 8px 0px rgba(0,255,255,0.7),
+            2px 4px 16px 0px rgba(0,255,255,0.7);
+
 }
 
 .ansCheck{
     display: block;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 35px;
+    font-weight: 300;
 }
 
+#startScreen {
+    text-align: center;
+    font-size: x-large;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 2%;
+    height: 390px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -350px;    
 
+}
+
+.question {
+    padding-top: 8px;
+    padding-left: 4px;
+}
+
+.submitSec {
+    text-align: center;
+    /* padding: 20px auto; */
+    margin-left: 10px;
+    padding-left: 30px;
+    padding-top: 30px;
+}
 
 
 

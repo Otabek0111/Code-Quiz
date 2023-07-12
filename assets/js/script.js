@@ -51,7 +51,7 @@ highScoreSec.setAttribute("class", "hide");
 
 var currentQuestionIndex = 0;
 
-var timeRemaining = 100;
+var timeRemaining = 75;
 
 var count = 0;
 
@@ -63,48 +63,33 @@ var currentIndex = 0;
 const questionsArray = [
   {
     question: "The first index of an array is __.",
-    choices: ["a. All", "b. 1", "c. 5", "d. 0"],
-    correctAnswer: "d. 0",
+    choices: ["A. All", "B. 1", "C. 5", "D. 0"],
+    correctAnswer: "D. 0"
   },
   {
     question: "Inside which HTML element do we put the JavaScript?",
-    choices: ["a. <script>", "b. <javascript>", "c. <scripting>", "d. <js>"],
-    correctAnswer: "a. <script>",
+    choices: ["A. <script>", "B. <javascript>", "C. <scripting>", "D. <js>"],
+    correctAnswer: "A. <script>"
   },
   {
     question: "Which event occurs when the user clicks on an HTML element?",
-    choices: ["a. onmouseclick", "b. onclick", "c. onchange", "d. onmouseover"],
-    correctAnswer: "b. onclick",
+    choices: ["A. onmouseclick", "B. onclick", "C. onchange", "D. onmouseover"],
+    correctAnswer: "B. onclick"
   },
   {
     question: "How to write an IF statement in JavaScript?",
-    choices: [
-      "a. if i == 5 then",
-      "b. if i = 5 then",
-      "c. if(i == 5)",
-      "d. if i = 5",
-    ],
-    correctAnswer: "c. if(i == 5)",
+    choices: [  "A. if i == 5 then", "B. if i = 5 then", "C. if(i == 5)", "D. if i = 5"],
+    correctAnswer: "C. if(i == 5)"
   },
   {
     question: "How do you add a comment in a JavaScript?",
-    choices: [
-      "a. //comment",
-      "b. <!--comment-->",
-      "c. comment",
-      "d. *comment *",
-    ],
-    correctAnswer: "a. //comment",
+    choices: [ "A. //comment", "B. <!--comment-->", "C. comment", "D. *comment *"],
+    correctAnswer: "A. //comment"
   },
   {
     question: "Arrays in JavaScript can be used to store _____.",
-    choices: [
-      "a. numbers and strings",
-      "b. other arrays",
-      "c. booleans",
-      "d. all of the above",
-    ],
-    correctAnswer: "b. other arrays",
+    choices: [ "A. numbers and strings", "B. other arrays", "C. booleans", "D. all of the above"],
+    correctAnswer: "B. other arrays"
   },
 ];
 
@@ -127,6 +112,8 @@ function finish() {
 }
 
 function getQuestion(index) {
+
+  if(questionsArray[index]){
   questionEl.textContent = questionsArray[index].question;
 
   choiceAEl.textContent = questionsArray[index].choices[0];
@@ -141,7 +128,7 @@ function getQuestion(index) {
 
   ansCheckEl.classList.remove("hide");
   ansCheckEl.textContent = "";
-
+  }
 }
 
 // loop through choices array and create a button element for each choice
@@ -174,10 +161,10 @@ function checkResponse(event) {
   console.log(event.target.textContent);
 
   if (questionsArray[currentIndex].correctAnswer == event.target.textContent) {
-    ansCheckEl.textContent = "correct";
+    ansCheckEl.textContent = "Correct! ";
     score++;
   } else {
-    timeRemaining = timeRemaining - 5;
+    timeRemaining = timeRemaining - 10;
     ansCheckEl.textContent =
       "incorrect, the correct choice was " +
       questionsArray[currentIndex].correctAnswer;
@@ -190,7 +177,7 @@ function checkResponse(event) {
       finish();
     }
     count++;
-  }, 3000);
+  }, 2500);
 }
 
 startButton.onclick = beginButton;
