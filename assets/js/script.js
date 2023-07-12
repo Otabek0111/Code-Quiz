@@ -40,17 +40,14 @@ var choicesButtonEl = document.querySelectorAll("#choiceButton");
 
 var finalScoreEl = document.querySelector("#finalScore");
 
-var highScoreSec = document.querySelector("#highScoreSec")
+var highScoreSec = document.querySelector("#highScoreSec");
 
-var submitSec = document.querySelector(".submitSec")
+var submitSec = document.querySelector(".submitSec");
 
-submitSec.setAttribute("class", "hide")
-highScoreSec =setAttribute("id", "hide")
+var completeSec = document.querySelector("#completion");
 
-
-
-
-
+submitSec.setAttribute("class", "hide");
+highScoreSec.setAttribute("class", "hide");
 
 var currentQuestionIndex = 0;
 
@@ -60,7 +57,7 @@ var count = 0;
 
 var score = 0;
 
-var currentIndex =0;
+var currentIndex = 0;
 
 //array of all the questions
 const questionsArray = [
@@ -113,7 +110,6 @@ const questionsArray = [
 
 //functions created
 function beginButton() {
-
   //   console.log("start quiz button works");
   startScreen.setAttribute("class", "hide");
   questionsSection.classList.remove("hide");
@@ -122,16 +118,15 @@ function beginButton() {
   timer();
 }
 
-function finish(){ 
-    questionsSection.setAttribute( "class", "hide");
-    submitSec.setAttribute("class", "block")
+function finish() {
+  questionsSection.setAttribute("class", "hide");
+  submitSec.setAttribute("class", "block");
 
-    finalScoreEl.textContent = "Score: " + score;
-    time.setAttribute("class", "hide");
+  finalScoreEl.textContent = "Score: " + score;
+  time.setAttribute("class", "hide");
 }
 
-function getQuestion( index ) {
-
+function getQuestion(index) {
   questionEl.textContent = questionsArray[index].question;
 
   choiceAEl.textContent = questionsArray[index].choices[0];
@@ -144,8 +139,10 @@ function getQuestion( index ) {
 
   currentIndex = index;
 
-}
+  ansCheckEl.classList.remove("hide");
+  ansCheckEl.textContent = "";
 
+}
 
 // loop through choices array and create a button element for each choice
 // append buttons to choices div
@@ -155,53 +152,49 @@ function timer() {
     time.textContent = "Time remaining: " + timeRemaining + " s ";
     timeRemaining--;
 
-    if ((timeRemaining <= 0)) {
+    if (timeRemaining <= 0) {
       clearInterval(timeInt);
       time.textContent = "time's up";
-      completion.textContent = "time's up";
+      completeSec.textContent = "time's up";
       finish();
-    } else if (count >= questionsArray.length ) {
+    } else if (count >= questionsArray.length) {
+
       clearInterval(timeInt);
+      
       finish();
     }
   }, 1000);
 }
 
-function checkResponse( event ) {
+function checkResponse(event) {
+  event.preventDefault();
+  //setTimeout(function(){ ansCheckEl.setAttribute("class", "hide"); } ,3500);
 
-    event.preventDefault(); 
-    setTimeout(function(){ ansCheckEl.setAttribute("class", "hide"); } ,3500);
-    
-    console.log(questionsArray[currentIndex].correctAnswer);
-    console.log(event.target.textContent);
+  console.log(questionsArray[currentIndex].correctAnswer);
+  console.log(event.target.textContent);
 
-    if ( questionsArray[currentIndex].correctAnswer == event.target.textContent ) {
-        ansCheckEl.textContent = 'correct';
-        score++;
-    }
-    else {
-        timeRemaining = timeRemaining -5;
-        ansCheckEl.textContent = 'incorrect, the correct choice was ' + questionsArray[currentIndex].correctAnswer ; 
-    }
-
-    if ( currentIndex <= questionsArray.length +1){ 
-        getQuestion(currentIndex +1);
-    }
-    else {
-        finish();
+  if (questionsArray[currentIndex].correctAnswer == event.target.textContent) {
+    ansCheckEl.textContent = "correct";
+    score++;
+  } else {
+    timeRemaining = timeRemaining - 5;
+    ansCheckEl.textContent =
+      "incorrect, the correct choice was " +
+      questionsArray[currentIndex].correctAnswer;
+  }
+  setTimeout(function () {
+    ansCheckEl.setAttribute("class", "hide");
+    if (currentIndex < questionsArray.length) {
+      getQuestion(currentIndex + 1);
+    } else {
+      finish();
     }
     count++;
-
+  }, 3000);
 }
-
 
 startButton.onclick = beginButton;
 
-
-    choicesButtonEl.forEach( 
-        function(click){
-            click.addEventListener("click", checkResponse); 
-        }
-    );
-
-
+choicesButtonEl.forEach(function (click) {
+  click.addEventListener("click", checkResponse);
+});
