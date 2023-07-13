@@ -1,7 +1,7 @@
 // console.log("script is connected");
 
-//variables need to create
 /*
+variables need to create
 start Btn
 inputButtons
 ansBtn1
@@ -64,32 +64,47 @@ const questionsArray = [
   {
     question: "The first index of an array is __.",
     choices: ["A. All", "B. 1", "C. 5", "D. 0"],
-    correctAnswer: "D. 0"
+    correctAnswer: "D. 0",
   },
   {
     question: "Inside which HTML element do we put the JavaScript?",
     choices: ["A. <script>", "B. <javascript>", "C. <scripting>", "D. <js>"],
-    correctAnswer: "A. <script>"
+    correctAnswer: "A. <script>",
   },
   {
     question: "Which event occurs when the user clicks on an HTML element?",
     choices: ["A. onmouseclick", "B. onclick", "C. onchange", "D. onmouseover"],
-    correctAnswer: "B. onclick"
+    correctAnswer: "B. onclick",
   },
   {
     question: "How to write an IF statement in JavaScript?",
-    choices: [  "A. if i == 5 then", "B. if i = 5 then", "C. if(i == 5)", "D. if i = 5"],
-    correctAnswer: "C. if(i == 5)"
+    choices: [
+      "A. if i == 5 then",
+      "B. if i = 5 then",
+      "C. if(i == 5)",
+      "D. if i = 5",
+    ],
+    correctAnswer: "C. if(i == 5)",
   },
   {
     question: "How do you add a comment in a JavaScript?",
-    choices: [ "A. //comment", "B. <!--comment-->", "C. comment", "D. *comment *"],
-    correctAnswer: "A. //comment"
+    choices: [
+      "A. //comment",
+      "B. <!--comment-->",
+      "C. comment",
+      "D. *comment *",
+    ],
+    correctAnswer: "A. //comment",
   },
   {
     question: "Arrays in JavaScript can be used to store _____.",
-    choices: [ "A. numbers and strings", "B. other arrays", "C. booleans", "D. all of the above"],
-    correctAnswer: "B. other arrays"
+    choices: [
+      "A. numbers and strings",
+      "B. other arrays",
+      "C. booleans",
+      "D. all of the above",
+    ],
+    correctAnswer: "B. other arrays",
   },
 ];
 
@@ -112,22 +127,21 @@ function finish() {
 }
 
 function getQuestion(index) {
+  if (questionsArray[index]) {
+    questionEl.textContent = questionsArray[index].question;
 
-  if(questionsArray[index]){
-  questionEl.textContent = questionsArray[index].question;
+    choiceAEl.textContent = questionsArray[index].choices[0];
 
-  choiceAEl.textContent = questionsArray[index].choices[0];
+    choiceBEl.textContent = questionsArray[index].choices[1];
 
-  choiceBEl.textContent = questionsArray[index].choices[1];
+    choiceCEl.textContent = questionsArray[index].choices[2];
 
-  choiceCEl.textContent = questionsArray[index].choices[2];
+    choiceDEl.textContent = questionsArray[index].choices[3];
 
-  choiceDEl.textContent = questionsArray[index].choices[3];
+    currentIndex = index;
 
-  currentIndex = index;
-
-  ansCheckEl.classList.remove("hide");
-  ansCheckEl.textContent = "";
+    ansCheckEl.classList.remove("hide");
+    ansCheckEl.textContent = "";
   }
 }
 
@@ -145,9 +159,8 @@ function timer() {
       completeSec.textContent = "time's up";
       finish();
     } else if (count >= questionsArray.length) {
-
       clearInterval(timeInt);
-      
+
       finish();
     }
   }, 1000);

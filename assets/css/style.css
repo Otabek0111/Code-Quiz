@@ -13,19 +13,16 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    color: white;
+    color: rgb(0, 0, 0);
     
 }
 
 .box {
-    /* background-color: white; */
-    /* margin: 110px 50px 50px 110px ;  */
     padding-left: 30px;
     padding-top: 15px;
     width: 90%;
     max-width: 700px;
     border-radius: 2%;
-    /* border: 5px groove rgb(238, 155, 169) ; */
     color: rgb(255, 255, 255);
     height: 390px;
     position: fixed;
@@ -39,7 +36,6 @@ body {
     padding: 5px;
     margin: 15px;
     font-size: medium;
-
 }
 
 #time{
@@ -67,9 +63,17 @@ body {
     font-size: large;
     color: aliceblue;
     background-color: rgb(209, 114, 145);
+    transition: box-shadow 0.4s ease;
+
+}
+.beginButton:hover{
+    box-shadow: 0px 3px 4px 0px rgba(210, 57, 187, 0.7),
+                1px 3px 6px 0px rgba(210, 57, 187, 0.7),
+                2px 5px 10px 0px rgba(210, 57, 187, 0.7),
+                2px 5px 18px 0px rgba(210, 57, 187, 0.7);
 }
 .description {
-    font-size: medium;
+    font-size: 23px;
 }
 
 ul{
@@ -90,17 +94,17 @@ ul{
     color: aliceblue;
     border-radius: 10%;
     background-color: rgb(202, 163, 181);
-    transition: box-shadow 0.4s ease;
+    transition: box-shadow 0.5s ease;
 }
 
 #choiceButton:hover{
     
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
 
-    box-shadow: 0px 1px 2px 0px rgba(0,255,255,0.7),
-            1px 2px 4px 0px rgba(0,255,255,0.7),
-            2px 4px 8px 0px rgba(0,255,255,0.7),
-            2px 4px 16px 0px rgba(0,255,255,0.7);
+    box-shadow: 0px 3px 4px 0px rgba(210, 57, 187, 0.7),
+                1px 3px 6px 0px rgba(210, 57, 187, 0.7),
+                2px 5px 10px 0px rgba(210, 57, 187, 0.7),
+                2px 5px 18px 0px rgba(210, 57, 187, 0.7);
 
 }
 
@@ -114,16 +118,7 @@ ul{
 
 #startScreen {
     text-align: center;
-    font-size: x-large;
-    width: 90%;
-    max-width: 700px;
-    border-radius: 2%;
-    height: 390px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -300px;
-    margin-left: -350px;    
+    font-size: 40px;
 
 }
 
