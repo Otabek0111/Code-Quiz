@@ -14,13 +14,13 @@ checkAns
 
 //variable decloration
 
-var startButton = document.querySelector(".beginButton");
+let startButton = document.querySelector("#beginButton");
 
-var startScreen = document.querySelector("#startScreen");
+let startScreen = document.querySelector("#startScreen");
 
-var ansCheckEl = document.querySelector(".ansCheck");
+let ansCheckEl = document.querySelector(".ansCheck");
 
-var questionsSection = document.querySelector("#questions");
+let questionsSection = document.querySelector("#questions");
 
 var time = document.getElementById("time");
 
@@ -28,15 +28,15 @@ let questionEl = document.querySelector(".question");
 
 var nextButton = document.getElementById("nextQuestion");
 
-var choiceAEl = document.querySelector(".choiceA");
+var choiceAEl = document.getElementById("choiceA");
 
-var choiceBEl = document.querySelector(".choiceB");
+var choiceBEl = document.getElementById("choiceB");
 
-var choiceCEl = document.querySelector(".choiceC");
+var choiceCEl = document.getElementById("choiceC");
 
-var choiceDEl = document.querySelector(".choiceD");
+var choiceDEl = document.getElementById("choiceD");
 
-var choicesButtonEl = document.querySelectorAll("#choiceButton");
+var choicesButtonEl = document.querySelectorAll(".choiceBtn");
 
 var finalScoreEl = document.querySelector("#finalScore");
 
@@ -46,8 +46,8 @@ var submitSec = document.querySelector(".submitSec");
 
 var completeSec = document.querySelector("#completion");
 
-submitSec.setAttribute("class", "hide");
-highScoreSec.setAttribute("class", "hide");
+// submitSec.setAttribute("class", "hide");
+// highScoreSec.setAttribute("class", "hide");
 
 var currentQuestionIndex = 0;
 
@@ -108,6 +108,9 @@ const questionsArray = [
   },
 ];
 
+let arraySize = questionsArray.length;
+console.log(arraySize);
+
 //functions created
 function beginButton() {
   //   console.log("start quiz button works");
@@ -120,10 +123,14 @@ function beginButton() {
 
 function finish() {
   questionsSection.setAttribute("class", "hide");
-  submitSec.setAttribute("class", "block");
+  submitSec.classList.remove("hide");
 
-  finalScoreEl.textContent = "Score: " + score;
+  const scorePercent = (score / arraySize) * 100;
+  // const scorePercent = score/questionsArray.question.length *100;
+
+  finalScoreEl.textContent = "Your Score was: " + parseInt(scorePercent) + "%";
   time.setAttribute("class", "hide");
+  ansCheckEl.setAttribute("class", "hide");
 }
 
 function getQuestion(index) {
@@ -142,6 +149,8 @@ function getQuestion(index) {
 
     ansCheckEl.classList.remove("hide");
     ansCheckEl.textContent = "";
+    questionsSection.classList.remove("hide");
+
   }
 }
 
@@ -155,8 +164,8 @@ function timer() {
 
     if (timeRemaining <= 0) {
       clearInterval(timeInt);
-      time.textContent = "time's up";
-      completeSec.textContent = "time's up";
+      time.textContent = "Time's up";
+      completeSec.textContent = "Time's up";
       finish();
     } else if (count >= questionsArray.length) {
       clearInterval(timeInt);
@@ -176,21 +185,26 @@ function checkResponse(event) {
   if (questionsArray[currentIndex].correctAnswer == event.target.textContent) {
     ansCheckEl.textContent = "Correct! ";
     score++;
+    questionsSection.setAttribute("class", "hide");
   } else {
     timeRemaining = timeRemaining - 10;
     ansCheckEl.textContent =
-      "incorrect, the correct choice was " +
-      questionsArray[currentIndex].correctAnswer;
+      "Incorrect, the Correct choice was \n" + questionsArray[currentIndex].correctAnswer;
+      questionsSection.setAttribute("class", "hide");
+
   }
+
   setTimeout(function () {
-    ansCheckEl.setAttribute("class", "hide");
+    // ansCheckEl.setAttribute("class", "hide");
     if (currentIndex < questionsArray.length) {
       getQuestion(currentIndex + 1);
     } else {
       finish();
     }
+
     count++;
   }, 2500);
+
 }
 
 startButton.onclick = beginButton;
@@ -198,3 +212,4 @@ startButton.onclick = beginButton;
 choicesButtonEl.forEach(function (click) {
   click.addEventListener("click", checkResponse);
 });
+n;

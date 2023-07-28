@@ -38,7 +38,7 @@ body {
     font-size: medium;
 }
 
-#time{
+#time{ 
     position: absolute; 
     padding: 5px;
     top: 12px;
@@ -56,7 +56,7 @@ body {
 }
 }
 
-.beginButton{
+.buttons{
     padding: 6px 50px;
     
     margin: 15px;
@@ -66,7 +66,7 @@ body {
     transition: box-shadow 0.4s ease;
 
 }
-.beginButton:hover{
+.buttons:hover{
     box-shadow: 0px 3px 4px 0px rgba(210, 57, 187, 0.7),
                 1px 3px 6px 0px rgba(210, 57, 187, 0.7),
                 2px 5px 10px 0px rgba(210, 57, 187, 0.7),
@@ -84,8 +84,8 @@ ul{
 }
 .choices{
     display: inline-grid;
-
 }
+/* }
 #choiceButton {
     margin: 12px; 
     padding: 10px 20px;
@@ -99,14 +99,14 @@ ul{
 
 #choiceButton:hover{
     
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 
     box-shadow: 0px 3px 4px 0px rgba(210, 57, 187, 0.7),
                 1px 3px 6px 0px rgba(210, 57, 187, 0.7),
                 2px 5px 10px 0px rgba(210, 57, 187, 0.7),
-                2px 5px 18px 0px rgba(210, 57, 187, 0.7);
+                2px 5px 18px 0px rgba(210, 57, 187, 0.7); */
 
-}
+
 
 .ansCheck{
     display: block;
@@ -114,6 +114,7 @@ ul{
     padding-left: 10px;
     font-size: 35px;
     font-weight: 300;
+    color: black;
 }
 
 #startScreen {
@@ -133,6 +134,17 @@ ul{
     margin-left: 10px;
     padding-left: 30px;
     padding-top: 30px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 35px;
+    font-weight: 300;
+}
+#highScoreSec{
+    display: none;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 35px;
+    font-weight: 300;
 }
 
 

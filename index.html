@@ -30,7 +30,7 @@
                 <section id="startScreen">
                     <h1> Coding Quiz</h1>
                     <p class="description">Complete this coding quiz to test your basic coding knowledge within the time allowed, note each wrong choice made will deduct time by 10 seconds.</p>
-                    <button class="beginButton">Start</button>
+                    <button class="buttons" id="beginButton">Start</button>
                 </section>
                     
                 <!-- section to show the questions one at a time -->
@@ -39,10 +39,10 @@
                         <!-- section for the choices -->
                         <section class="choices">    
                             <ul>
-                                <li><button id="choiceButton" class="choiceA"> A </button> </li>
-                                <li><button id="choiceButton" class="choiceB"> B </button> </li>
-                                <li><button id="choiceButton" class="choiceC"> C </button> </li>
-                                <li><button id="choiceButton" class="choiceD"> D </button> </li>
+                                <li><button class="buttons choiceBtn" id="choiceA"> A </button> </li>
+                                <li><button class="buttons choiceBtn" id="choiceB"> B </button> </li>
+                                <li><button class="buttons choiceBtn" id="choiceC"> C </button> </li>
+                                <li><button class="buttons choiceBtn" id="choiceD"> D </button> </li>
                             </ul>
                         </section>
                 <!-- show if the choice is correct or not -->
@@ -52,13 +52,13 @@
                 </section>
                 
                 <!-- end page to show results and input for initails -->
-                <section class="submitSec">
+                <section class="submitSec hide">
                     <article id="submitSec">
                         <p id="completion"> Quiz complete </p>
                         <p id="finalScore">score: </p>
                         <p>Enter initials :  <input id="nameInitials"> </p>
 
-                        <button id="submitBtn">Submit results</button>
+                        <button class="buttons" id="submitBtn">Submit results</button>
                     </article>
                 </section>
 
