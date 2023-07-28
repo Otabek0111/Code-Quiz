@@ -32,11 +32,6 @@ body {
     margin-left: -350px;    
 
 }
-.viewScores{
-    padding: 5px;
-    margin: 15px;
-    font-size: medium;
-}
 
 #time{ 
     position: absolute; 
@@ -45,25 +40,27 @@ body {
     right: 40px;
     /* background-color: rgb(0, 0, 0); */
     font-size: x-large;
-    color: rgb(255, 255, 255);
+    color: white;
     /* background-color: rgb(255, 255, 255); */
 }
 
 .hide {
     display: none;
+}
 .block{
     display: block;
 }
-}
+
 
 .buttons{
-    padding: 6px 50px;
-    
-    margin: 15px;
-    font-size: large;
-    color: aliceblue;
-    background-color: rgb(209, 114, 145);
-    transition: box-shadow 0.4s ease;
+    margin: 12px; 
+    padding: 10px 20px;
+    border: 20px;
+    font-size: medium;
+    color: black;
+    border-radius: 10%;
+    background-color: rgb(202, 163, 181);
+    transition: box-shadow 0.5s ease;
 
 }
 .buttons:hover{
@@ -85,27 +82,6 @@ ul{
 .choices{
     display: inline-grid;
 }
-/* }
-#choiceButton {
-    margin: 12px; 
-    padding: 10px 20px;
-    border: 20px;
-    font-size: medium;
-    color: aliceblue;
-    border-radius: 10%;
-    background-color: rgb(202, 163, 181);
-    transition: box-shadow 0.5s ease;
-}
-
-#choiceButton:hover{
-    
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-
-    box-shadow: 0px 3px 4px 0px rgba(210, 57, 187, 0.7),
-                1px 3px 6px 0px rgba(210, 57, 187, 0.7),
-                2px 5px 10px 0px rgba(210, 57, 187, 0.7),
-                2px 5px 18px 0px rgba(210, 57, 187, 0.7); */
-
 
 
 .ansCheck{
@@ -120,12 +96,17 @@ ul{
 #startScreen {
     text-align: center;
     font-size: 40px;
+    font-weight: 300;
+    color: black;
 
 }
 
 .question {
     padding-top: 8px;
     padding-left: 4px;
+    font-size: 35px;
+    font-weight: 300;
+    color: black;
 }
 
 .submitSec {
